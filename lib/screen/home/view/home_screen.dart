@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //   '$i',
             //   style: const TextStyle(fontSize: 35),
             // ),
-          ))
+          )),
         ],
       ),
       floatingActionButton: Row(
@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.add),
           ),
+          const SizedBox(width: 10,),
           FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -53,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.remove),
           ),
+          const SizedBox(width: 10,),
           FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -61,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.two_k_outlined),
           ),
+          const SizedBox(width: 10,),
           FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -69,13 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.three_k),
           ),
+          const SizedBox(width: 10,),
           FloatingActionButton(
             onPressed: () {
               setState(() {
                 context.read<HomeProvider>().four();
               });
             },
-            child: const Icon(Icons.three_k),
+            child: const Icon(Icons.four_k),
           ),
         ],
       ),
