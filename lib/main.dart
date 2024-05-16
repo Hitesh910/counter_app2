@@ -1,7 +1,7 @@
 import 'package:counter_app2/screen/home/provider/home_provider.dart';
 import 'package:counter_app2/utils/app_routes.dart';
-import 'package:counter_app2/utils/theme/provider.dart';
-import 'package:counter_app2/utils/theme/theme.dart';
+import 'package:counter_app2/utils/provider/provider.dart';
+import 'package:counter_app2/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,9 +10,9 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: HomeProvider()),
-        ChangeNotifierProvider.value(value: ThemeProvider())
+        ChangeNotifierProvider.value(value: ThemeChange()),
       ],
-      child: Consumer(
+      child: Consumer<ThemeChange>(
         builder: (context, value, child) {
          return MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -23,7 +23,7 @@ void main() {
             // ),
             theme: LightTheme,
             darkTheme: DarkTheme,
-            themeMode: ThemeMode.light,
+            themeMode: value.mode,
             // Provider.of<ThemeProvider>(context).themeMode,
             // ThemeData(
             //     colorSchemeSeed: Colors.grey,

@@ -1,4 +1,5 @@
 import 'package:counter_app2/screen/home/provider/home_provider.dart';
+import 'package:counter_app2/utils/provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,32 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Counter App"),
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  child: Text("System"),
+                  onTap: () {
+                    context.read<ThemeChange>().changeTheme(ThemeMode.system);
+                  },
+                ),
+                PopupMenuItem(
+                  child: Text("Light"),
+                  onTap: () {
+                    context.read<ThemeChange>().changeTheme(ThemeMode.light);
+                  },
+                ),
+                PopupMenuItem(
+                  child: Text("Dark"),
+                  onTap: () {
+                    context.read<ThemeChange>().changeTheme(ThemeMode.dark);
+                  },
+                ),
+              ];
+            },
+          )
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
               child: Consumer<HomeProvider>(
             builder: (context, value, child) => Text(
-      '${value.i}',
+              '${value.i}',
               style: const TextStyle(fontSize: 35),
             ),
             // child: Text(
@@ -32,6 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
             //   style: const TextStyle(fontSize: 35),
             // ),
           )),
+          FloatingActionButton(onPressed: () {
+            
+          },child: Text("save"),)
         ],
       ),
       floatingActionButton: Row(
@@ -45,7 +75,9 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.add),
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -54,7 +86,9 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.remove),
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -63,7 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.two_k_outlined),
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           FloatingActionButton(
             onPressed: () {
               setState(() {
@@ -72,7 +108,9 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             child: const Icon(Icons.three_k),
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
           FloatingActionButton(
             onPressed: () {
               setState(() {
