@@ -14,7 +14,8 @@ void main() {
       ],
       child: Consumer<ThemeChange>(
         builder: (context, value, child) {
-         return MaterialApp(
+          value.getTheme();
+          return MaterialApp(
             debugShowCheckedModeBanner: false,
             // themeMode: ThemeMode.dark,
             // darkTheme: ThemeData(
@@ -23,7 +24,11 @@ void main() {
             // ),
             theme: LightTheme,
             darkTheme: DarkTheme,
-            themeMode: value.mode,
+            themeMode: value.theme=="Light"
+                ? ThemeMode.light
+                : value.theme=="Dark"
+                    ? ThemeMode.dark
+                    : ThemeMode.system,
             // Provider.of<ThemeProvider>(context).themeMode,
             // ThemeData(
             //     colorSchemeSeed: Colors.grey,

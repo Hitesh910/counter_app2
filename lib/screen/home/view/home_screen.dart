@@ -23,21 +23,21 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context) {
               return [
                 PopupMenuItem(
-                  child: Text("System"),
+                  child: const Text("System"),
                   onTap: () {
-                    context.read<ThemeChange>().changeTheme(ThemeMode.system);
+                    context.read<ThemeChange>().saveTheme('System');
                   },
                 ),
                 PopupMenuItem(
-                  child: Text("Light"),
+                  child: const Text("Light"),
                   onTap: () {
-                    context.read<ThemeChange>().changeTheme(ThemeMode.light);
+                    context.read<ThemeChange>().saveTheme('Light');
                   },
                 ),
                 PopupMenuItem(
-                  child: Text("Dark"),
+                  child: const Text("Dark"),
                   onTap: () {
-                    context.read<ThemeChange>().changeTheme(ThemeMode.dark);
+                    context.read<ThemeChange>().saveTheme('Dark');
                   },
                 ),
               ];
@@ -60,8 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // ),
           )),
           FloatingActionButton(onPressed: () {
-            
-          },child: Text("save"),)
+            },child: const Text("save"),)
         ],
       ),
       floatingActionButton: Row(
